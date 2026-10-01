@@ -16,6 +16,31 @@ while IFS=$'\t' read -r key value; do
   c[$key]=$value
 done < <(omarchy-theme-color --file "$COLORS" --all)
 
+# Mix hex $2 into hex $1 by percent $3 and print "H S% L%", the bare triplet
+# some sites store in variables for hsl(var(--x)).
+hsl_mix() {
+  awk -v a="${1#\#}" -v b="${2#\#}" -v t="$3" '
+    function h(s, i) { return index("0123456789abcdef", tolower(substr(s, i, 1))) - 1 }
+    function ch(s, i) { return (h(s, i) * 16 + h(s, i + 1)) / 255 }
+    BEGIN {
+      t /= 100
+      r = ch(a, 1) * (1 - t) + ch(b, 1) * t
+      g = ch(a, 3) * (1 - t) + ch(b, 3) * t
+      bl = ch(a, 5) * (1 - t) + ch(b, 5) * t
+      mx = r; if (g > mx) mx = g; if (bl > mx) mx = bl
+      mn = r; if (g < mn) mn = g; if (bl < mn) mn = bl
+      l = (mx + mn) / 2; d = mx - mn; hue = 0; sat = 0
+      if (d > 0) {
+        sat = d / (1 - (2 * l - 1 < 0 ? 1 - 2 * l : 2 * l - 1))
+        if (mx == r) hue = (g - bl) / d + (g < bl ? 6 : 0)
+        else if (mx == g) hue = (bl - r) / d + 2
+        else hue = (r - g) / d + 4
+        hue *= 60
+      }
+      printf "%.0f %.1f%% %.1f%%", hue, sat * 100, l * 100
+    }'
+}
+
 rgb() {
   local hex=${1#\#}
   printf '%d, %d, %d' "0x${hex:0:2}" "0x${hex:2:2}" "0x${hex:4:2}"
@@ -39,6 +64,14 @@ tmp=$(mktemp "$OUT.XXXXXX")
   for name in bg fg accent; do
     key=$(printf '%s\n' "${vars[@]}" | grep "^$name:" | cut -d: -f2)
     echo "  --om-$name-rgb: $(rgb "${c[$key]}");"
+  done
+  # Same palette as bare HSL triplets, with the shades base.css derives.
+  bg=${c[background]} fg=${c[foreground]}
+  for pair in surface:6 surface-2:10 surface-3:15 border:18 fg-faint:42 fg-muted:68; do
+    echo "  --om-hsl-${pair%%:*}: $(hsl_mix "$bg" "$fg" "${pair#*:}");"
+  done
+  for pair in "${vars[@]}"; do
+    echo "  --om-hsl-${pair%%:*}: $(hsl_mix "${c[${pair#*:}]}" "${c[${pair#*:}]}" 0);"
   done
   echo "}"
 } >"$tmp"

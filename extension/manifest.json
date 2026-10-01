@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Omarchy Site Themes",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Recolors favorite sites with the current Omarchy theme.",
   "background": {
     "service_worker": "background.js"
@@ -9,7 +9,8 @@
   "host_permissions": [
     "https://www.redditstatic.com/*",
     "https://*.redditmedia.com/*",
-    "https://*.mmo-champion.com/*"
+    "https://*.mmo-champion.com/*",
+    "https://www.gstatic.com/*"
   ],
   "content_scripts": [
     {
@@ -75,6 +76,36 @@
       "css": [
         "base.css",
         "sites/github.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://x.com/*",
+        "*://twitter.com/*",
+        "*://mobile.x.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/x.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.facebook.com/*",
+        "*://facebook.com/*",
+        "*://web.facebook.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/facebook.css"
       ],
       "js": [
         "theme.js"
@@ -186,6 +217,20 @@
         "remap.js"
       ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://mail.google.com/*"
+      ],
+      "css": [
+        "base.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js"
+      ],
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
@@ -215,7 +260,14 @@
         "*://www.inside.lighting/*",
         "*://daringfireball.net/*",
         "*://www.mmo-champion.com/*",
-        "*://mmo-champion.com/*"
+        "*://mmo-champion.com/*",
+        "*://x.com/*",
+        "*://twitter.com/*",
+        "*://mobile.x.com/*",
+        "*://www.facebook.com/*",
+        "*://facebook.com/*",
+        "*://web.facebook.com/*",
+        "*://mail.google.com/*"
       ]
     }
   ]

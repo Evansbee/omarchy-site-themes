@@ -109,7 +109,8 @@
         else expr = mix("var(--om-fg)", clamp(Math.round(p * 100), 45, 100));
       } else {
         // Fills stay in the bottom of the ladder so any text on them reads.
-        const cap = role === "border" ? 40 : 24;
+        // Translucent ones are overlays (hover, scrims) and keep their weight.
+        const cap = c[3] < 1 ? 100 : role === "border" ? 40 : 24;
         expr = mix("var(--om-fg)", clamp(Math.round(p * 100), 0, cap));
       }
     }
