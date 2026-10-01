@@ -1,0 +1,50 @@
+/* Google Material 3 (--gm3-sys-color-*), shared by Google apps. Google
+   declares these on <html>, <body> and some containers, so override them on
+   each. */
+
+html[data-omarchy-themed],
+html[data-omarchy-themed] :is(body, .pnAbYe) {
+  --gm3-sys-color-background: var(--om-bg) !important;
+  --gm3-sys-color-background-rgb: var(--om-bg-rgb) !important;
+  --gm3-sys-color-surface: var(--om-bg) !important;
+  --gm3-sys-color-surface-rgb: var(--om-bg-rgb) !important;
+  --gm3-sys-color-surface-dim: var(--om-bg) !important;
+  --gm3-sys-color-surface-container-lowest: var(--om-bg) !important;
+  --gm3-sys-color-surface-container-low: var(--om-surface) !important;
+  --gm3-sys-color-surface-container: var(--om-surface) !important;
+  --gm3-sys-color-surface-container-high: var(--om-surface-2) !important;
+  --gm3-sys-color-surface-container-highest: var(--om-surface-3) !important;
+  --gm3-sys-color-surface-bright: var(--om-surface-2) !important;
+  --gm3-sys-color-surface-variant: var(--om-surface-2) !important;
+  --gm3-sys-color-surface-tint: var(--om-accent) !important;
+  --gm3-sys-color-on-background: var(--om-fg) !important;
+  --gm3-sys-color-on-surface: var(--om-fg) !important;
+  --gm3-sys-color-on-surface-rgb: var(--om-fg-rgb) !important;
+  --gm3-sys-color-on-surface-variant: var(--om-fg-muted) !important;
+  --gm3-sys-color-outline: var(--om-fg-faint) !important;
+  --gm3-sys-color-outline-variant: var(--om-border) !important;
+  --gm3-sys-color-primary: var(--om-accent) !important;
+  --gm3-sys-color-primary-rgb: var(--om-accent-rgb) !important;
+  --gm3-sys-color-on-primary: var(--om-bg) !important;
+  --gm3-sys-color-primary-container: var(--om-accent-soft) !important;
+  --gm3-sys-color-on-primary-container: var(--om-fg-strong) !important;
+  --gm3-sys-color-primary-fixed: var(--om-accent-soft) !important;
+  --gm3-sys-color-primary-fixed-dim: var(--om-accent) !important;
+  --gm3-sys-color-on-primary-fixed: var(--om-fg-strong) !important;
+  --gm3-sys-color-inverse-primary: var(--om-accent) !important;
+  --gm3-sys-color-secondary: var(--om-accent) !important;
+  --gm3-sys-color-secondary-container: var(--om-surface-3) !important;
+  --gm3-sys-color-on-secondary-container: var(--om-fg) !important;
+  --gm3-sys-color-secondary-fixed: var(--om-surface-3) !important;
+  --gm3-sys-color-secondary-fixed-dim: var(--om-surface-3) !important;
+  --gm3-sys-color-on-secondary-fixed: var(--om-fg) !important;
+  --gm3-sys-color-tertiary: var(--om-green) !important;
+  --gm3-sys-color-tertiary-container: color-mix(in srgb, var(--om-green) 25%, var(--om-bg)) !important;
+  --gm3-sys-color-on-tertiary-container: var(--om-fg) !important;
+  --gm3-sys-color-error: var(--om-red) !important;
+  --gm3-sys-color-on-error: var(--om-bg) !important;
+  --gm3-sys-color-error-container: color-mix(in srgb, var(--om-red) 25%, var(--om-bg)) !important;
+  --gm3-sys-color-on-error-container: var(--om-fg) !important;
+  --gm3-sys-color-inverse-surface: var(--om-fg) !important;
+  --gm3-sys-color-inverse-on-surface: var(--om-bg) !important;
+}

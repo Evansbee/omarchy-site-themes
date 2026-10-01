@@ -1,0 +1,7 @@
+/* Gmail: recolored through the Material 3 tokens in gm3.css. Works best with
+   Gmail's own dark theme (Settings > Themes > Dark) underneath, so anything
+   Gmail hard-codes is at least dark. */
+
+html[data-omarchy-themed] body {
+  background-color: var(--om-bg) !important;
+}

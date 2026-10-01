@@ -9,8 +9,7 @@
   "host_permissions": [
     "https://www.redditstatic.com/*",
     "https://*.redditmedia.com/*",
-    "https://*.mmo-champion.com/*",
-    "https://www.gstatic.com/*"
+    "https://*.mmo-champion.com/*"
   ],
   "content_scripts": [
     {
@@ -47,6 +46,7 @@
       ],
       "css": [
         "base.css",
+        "sites/gm3.css",
         "sites/google-news.css"
       ],
       "js": [
@@ -223,12 +223,12 @@
         "*://mail.google.com/*"
       ],
       "css": [
-        "base.css"
+        "base.css",
+        "sites/gm3.css",
+        "sites/gmail.css"
       ],
       "js": [
-        "theme.js",
-        "palette.js",
-        "remap.js"
+        "theme.js"
       ],
       "run_at": "document_start"
     }
