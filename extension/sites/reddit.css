@@ -1,0 +1,129 @@
+/* Reddit (shreddit): every component reads --color-* design tokens, which
+   inherit into its shadow roots. The tokens are declared on :root and again
+   on nested .theme-beta/.theme-rpl elements, so override them on both. */
+
+html[data-omarchy-themed],
+html[data-omarchy-themed] :is(.theme-beta, .theme-rpl, .theme-dark, .theme-light) {
+  --color-neutral-background: var(--om-bg) !important;
+  --color-neutral-background-pinned: var(--om-bg) !important;
+  --color-neutral-background-weak: var(--om-bg) !important;
+  --color-neutral-background-weak-hover: var(--om-surface) !important;
+  --color-neutral-background-hover: var(--om-surface) !important;
+  --color-neutral-background-medium: var(--om-surface) !important;
+  --color-neutral-background-strong: var(--om-surface) !important;
+  --color-neutral-background-container: var(--om-surface) !important;
+  --color-neutral-background-highlighted: var(--om-surface) !important;
+  --color-neutral-background-gilded: var(--om-surface) !important;
+  --color-neutral-background-canvas: var(--om-surface-2) !important;
+  --color-neutral-background-strong-hover: var(--om-surface-2) !important;
+  --color-neutral-background-container-hover: var(--om-surface-2) !important;
+  --color-neutral-background-container-strong: var(--om-surface-2) !important;
+  --color-neutral-background-gilded-hover: var(--om-surface-2) !important;
+  --color-neutral-background-highlighted-strong: var(--om-surface-2) !important;
+  --color-neutral-background-selected: var(--om-surface-2) !important;
+  --color-neutral-background-container-strong-hover: var(--om-surface-3) !important;
+
+  --color-neutral-border: var(--om-border) !important;
+  --color-neutral-border-weak: var(--om-surface-2) !important;
+  --color-neutral-border-divider: var(--om-border) !important;
+  --color-neutral-border-medium: var(--om-fg-faint) !important;
+  --color-neutral-border-strong: var(--om-fg) !important;
+
+  --color-neutral-content: var(--om-fg) !important;
+  --color-neutral-content-strong: var(--om-fg-strong) !important;
+  --color-neutral-content-weak: var(--om-fg-muted) !important;
+  --color-neutral-content-disabled: var(--om-fg-faint) !important;
+
+  --color-primary: var(--om-accent) !important;
+  --color-primary-plain: var(--om-accent) !important;
+  --color-primary-hover: var(--om-accent-hover) !important;
+  --color-primary-plain-hover: var(--om-accent-hover) !important;
+  --color-primary-visited: var(--om-magenta) !important;
+  --color-primary-plain-visited: var(--om-magenta) !important;
+  --color-primary-plain-selected: var(--om-fg) !important;
+  --color-primary-background: var(--om-accent) !important;
+  --color-primary-background-hover: var(--om-accent-hover) !important;
+  --color-primary-background-selected: var(--om-accent) !important;
+  --color-primary-background-highlighted: var(--om-accent-soft) !important;
+  --color-primary-onBackground: var(--om-bg) !important;
+  --color-primary-onBackground-selected: var(--om-bg) !important;
+  --color-primary-border: var(--om-fg-faint) !important;
+  --color-primary-border-hover: var(--om-fg) !important;
+  --color-primary-switchBackground: var(--om-surface-3) !important;
+  --color-primary-switchBackground-hover: var(--om-border) !important;
+  --color-primary-switchBackground-selected: var(--om-accent) !important;
+  --color-primary-switchBackground-selected-hover: var(--om-accent-hover) !important;
+
+  --color-primarynext-background: var(--om-accent) !important;
+  --color-primarynext-background-hover: var(--om-accent-hover) !important;
+  --color-primarynext-onBackground: var(--om-bg) !important;
+  --color-primarynext-border: var(--om-fg-faint) !important;
+  --color-primarynext-border-hover: var(--om-fg) !important;
+  --color-primarynext-plain: var(--om-accent) !important;
+  --color-primarynext-plain-hover: var(--om-accent-hover) !important;
+  --color-primarynext-plain-selected: var(--om-fg) !important;
+  --color-primarynext-plain-visited: var(--om-magenta) !important;
+
+  --color-secondary: var(--om-fg) !important;
+  --color-secondary-hover: var(--om-fg-strong) !important;
+  --color-secondary-weak: var(--om-fg-faint) !important;
+  --color-secondary-plain: var(--om-fg) !important;
+  --color-secondary-plain-hover: var(--om-fg-strong) !important;
+  --color-secondary-plain-weak: var(--om-fg-muted) !important;
+  --color-secondary-background: var(--om-surface-2) !important;
+  --color-secondary-background-hover: var(--om-surface-3) !important;
+  --color-secondary-background-selected: var(--om-surface-3) !important;
+  --color-secondary-onBackground: var(--om-fg) !important;
+
+  --color-brand-background: var(--om-accent) !important;
+  --color-brand-background-hover: var(--om-accent-hover) !important;
+  --color-brand-onBackground: var(--om-bg) !important;
+
+  --color-upvote-background: var(--om-orange) !important;
+  --color-upvote-background-hover: var(--om-orange) !important;
+  --color-upvote-content: var(--om-orange) !important;
+  --color-upvote-content-weak: var(--om-orange) !important;
+  --color-upvote-plain: var(--om-orange) !important;
+  --color-upvote-plain-weaker: var(--om-orange) !important;
+  --color-upvote-onBackground: var(--om-bg) !important;
+  --color-downvote-background: var(--om-blue) !important;
+  --color-downvote-background-hover: var(--om-blue) !important;
+  --color-downvote-content: var(--om-blue) !important;
+  --color-downvote-content-weak: var(--om-blue) !important;
+  --color-downvote-plain: var(--om-blue) !important;
+  --color-downvote-plain-weaker: var(--om-blue) !important;
+  --color-downvote-onBackground: var(--om-bg) !important;
+
+  --color-danger-content: var(--om-red) !important;
+  --color-danger-plain: var(--om-red) !important;
+  --color-danger-background: var(--om-red) !important;
+  --color-danger-onBackground: var(--om-bg) !important;
+  --color-success-content: var(--om-green) !important;
+  --color-success-plain: var(--om-green) !important;
+  --color-success-background: var(--om-green) !important;
+  --color-success-onBackground: var(--om-bg) !important;
+  --color-warning-content: var(--om-yellow) !important;
+  --color-warning-background: var(--om-yellow) !important;
+  --color-caution-background: var(--om-yellow) !important;
+
+  --color-interactive-focused: var(--om-accent) !important;
+  --color-interactive-pressed: var(--om-tint-strong) !important;
+  --color-transparent-background-hover: var(--om-tint) !important;
+  --color-ui-modalbackground: var(--om-surface) !important;
+
+  --color-tags-neutral-background: var(--om-surface-2) !important;
+  --color-tags-app-background: var(--om-surface-2) !important;
+  --color-tags-verified-background: var(--om-surface-2) !important;
+
+  --color-tone-1: var(--om-fg-strong) !important;
+  --color-tone-2: var(--om-fg-muted) !important;
+  --color-tone-3: var(--om-border) !important;
+  --color-tone-4: var(--om-surface-3) !important;
+  --color-tone-5: var(--om-surface-2) !important;
+  --color-tone-6: var(--om-surface) !important;
+  --color-tone-7: var(--om-bg) !important;
+}
+
+html[data-omarchy-themed] body {
+  background: var(--om-bg) !important;
+}

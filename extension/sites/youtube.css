@@ -1,0 +1,51 @@
+/* YouTube: the UI reads --yt-spec-* tokens, declared on <html> and again on
+   any element carrying a [dark] or [light] attribute. */
+
+html[data-omarchy-themed],
+html[data-omarchy-themed] :is([dark], [light]) {
+  --yt-spec-base-background: var(--om-bg) !important;
+  --yt-spec-general-background-a: var(--om-bg) !important;
+  --yt-spec-general-background-b: var(--om-bg) !important;
+  --yt-spec-general-background-c: var(--om-surface) !important;
+  --yt-spec-brand-background-solid: var(--om-bg) !important;
+  --yt-spec-brand-background-primary: var(--om-bg) !important;
+  --yt-spec-brand-background-secondary: var(--om-surface) !important;
+  --yt-spec-raised-background: var(--om-surface) !important;
+  --yt-spec-menu-background: var(--om-surface-2) !important;
+  --yt-spec-inverted-background: var(--om-fg) !important;
+  --yt-spec-additive-background: var(--om-tint) !important;
+  --yt-spec-outline: var(--om-border) !important;
+  --yt-spec-10-percent-layer: var(--om-border) !important;
+
+  --yt-spec-text-primary: var(--om-fg) !important;
+  --yt-spec-text-secondary: var(--om-fg-muted) !important;
+  --yt-spec-text-disabled: var(--om-fg-faint) !important;
+  --yt-spec-text-primary-inverse: var(--om-bg) !important;
+  --yt-spec-wordmark-text: var(--om-fg) !important;
+
+  --yt-spec-icon-active-other: var(--om-fg) !important;
+  --yt-spec-icon-inactive: var(--om-fg-muted) !important;
+  --yt-spec-icon-disabled: var(--om-fg-faint) !important;
+  --yt-spec-brand-icon-active: var(--om-accent) !important;
+  --yt-spec-brand-icon-inactive: var(--om-fg-muted) !important;
+
+  --yt-spec-call-to-action: var(--om-accent) !important;
+  --yt-spec-call-to-action-inverse: var(--om-accent) !important;
+  --yt-spec-themed-blue: var(--om-accent) !important;
+  --yt-spec-suggested-action: var(--om-accent-soft) !important;
+
+  --yt-spec-badge-chip-background: var(--om-tint) !important;
+  --yt-spec-button-chip-background-hover: var(--om-tint-strong) !important;
+  --yt-spec-touch-response: var(--om-fg) !important;
+  --yt-spec-mono-filled: var(--om-fg) !important;
+  --yt-spec-mono-filled-hover: var(--om-fg-muted) !important;
+  --yt-spec-mono-tonal: var(--om-tint) !important;
+  --yt-spec-mono-tonal-hover: var(--om-tint-strong) !important;
+}
+
+html[data-omarchy-themed] body,
+html[data-omarchy-themed] ytd-app,
+html[data-omarchy-themed] #background.ytd-masthead,
+html[data-omarchy-themed] #frosted-glass {
+  background: var(--om-bg) !important;
+}

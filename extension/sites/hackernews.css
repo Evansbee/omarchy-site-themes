@@ -1,0 +1,111 @@
+/* Hacker News: plain table markup with hard-coded colors, so restyle directly. */
+
+html[data-omarchy-themed] body,
+html[data-omarchy-themed] #hnmain,
+html[data-omarchy-themed] td,
+html[data-omarchy-themed] .title,
+html[data-omarchy-themed] .subtext,
+html[data-omarchy-themed] .subtext td,
+html[data-omarchy-themed] .comhead,
+html[data-omarchy-themed] .yclinks,
+html[data-omarchy-themed] .default {
+  color: var(--om-fg-muted) !important;
+}
+
+html[data-omarchy-themed],
+html[data-omarchy-themed] body,
+html[data-omarchy-themed] #hnmain {
+  background: var(--om-bg) !important;
+}
+
+/* Orange header bar */
+html[data-omarchy-themed] td[bgcolor="#ff6600"] {
+  background: var(--om-surface-2) !important;
+  border-bottom: 2px solid var(--om-accent);
+}
+html[data-omarchy-themed] .pagetop,
+html[data-omarchy-themed] .pagetop a:link,
+html[data-omarchy-themed] .pagetop a:visited {
+  color: var(--om-fg) !important;
+}
+html[data-omarchy-themed] .hnname a:link,
+html[data-omarchy-themed] .hnname a:visited,
+html[data-omarchy-themed] .topsel a:link,
+html[data-omarchy-themed] .topsel a:visited {
+  color: var(--om-accent) !important;
+}
+html[data-omarchy-themed] td[bgcolor="#ff6600"] img[src="y18.svg"] {
+  border-color: var(--om-surface-2) !important;
+}
+
+/* Links */
+html[data-omarchy-themed] a:link {
+  color: var(--om-fg) !important;
+}
+html[data-omarchy-themed] a:visited,
+html[data-omarchy-themed] .titleline > a:visited {
+  color: var(--om-fg-faint) !important;
+}
+html[data-omarchy-themed] .subtext a:link,
+html[data-omarchy-themed] .subtext a:visited,
+html[data-omarchy-themed] .comhead a:link,
+html[data-omarchy-themed] .comhead a:visited,
+html[data-omarchy-themed] .sitestr,
+html[data-omarchy-themed] .rank,
+html[data-omarchy-themed] .hnmore a:link {
+  color: var(--om-fg-muted) !important;
+}
+html[data-omarchy-themed] .hnuser:hover,
+html[data-omarchy-themed] .subtext a:hover,
+html[data-omarchy-themed] .comhead a:hover {
+  color: var(--om-accent) !important;
+}
+
+/* Comments, strongest to most downvoted */
+html[data-omarchy-themed] .commtext,
+html[data-omarchy-themed] .c00,
+html[data-omarchy-themed] .c00 a:link,
+html[data-omarchy-themed] .toptext,
+html[data-omarchy-themed] font[color="#000000"] {
+  color: var(--om-fg) !important;
+}
+html[data-omarchy-themed] :is(.c5a, .c73, .c82, .c88),
+html[data-omarchy-themed] :is(.c5a, .c73, .c82, .c88) a:is(:link, :visited) {
+  color: var(--om-fg-muted) !important;
+}
+html[data-omarchy-themed] :is(.c9c, .cae, .cbe, .cce, .cdd),
+html[data-omarchy-themed] :is(.c9c, .cae, .cbe, .cce, .cdd) a:is(:link, :visited) {
+  color: var(--om-fg-faint) !important;
+}
+html[data-omarchy-themed] .commtext a:link,
+html[data-omarchy-themed] .toptext a:link {
+  color: var(--om-accent) !important;
+}
+html[data-omarchy-themed] pre,
+html[data-omarchy-themed] code {
+  background: var(--om-surface);
+  color: var(--om-fg) !important;
+}
+
+/* Forms */
+html[data-omarchy-themed] input:not([type="submit"]),
+html[data-omarchy-themed] textarea,
+html[data-omarchy-themed] select {
+  background: var(--om-surface) !important;
+  color: var(--om-fg) !important;
+  border: 1px solid var(--om-border) !important;
+}
+html[data-omarchy-themed] input[type="submit"],
+html[data-omarchy-themed] button {
+  background: var(--om-surface-2) !important;
+  color: var(--om-fg) !important;
+  border: 1px solid var(--om-border) !important;
+}
+html[data-omarchy-themed] input[readonly] {
+  background: transparent !important;
+  border: none !important;
+}
+
+html[data-omarchy-themed] .votearrow {
+  opacity: 0.7;
+}

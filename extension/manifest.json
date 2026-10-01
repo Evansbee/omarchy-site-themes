@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Omarchy Site Themes",
+  "version": "0.1.0",
+  "description": "Recolors Hacker News, Reddit, Google News and YouTube with the current Omarchy theme.",
+  "content_scripts": [
+    {
+      "matches": ["*://news.ycombinator.com/*"],
+      "css": ["base.css", "sites/hackernews.css"],
+      "js": ["theme.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://www.reddit.com/*", "*://reddit.com/*", "*://sh.reddit.com/*"],
+      "css": ["base.css", "sites/reddit.css"],
+      "js": ["theme.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://news.google.com/*"],
+      "css": ["base.css", "sites/google-news.css"],
+      "js": ["theme.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["*://www.youtube.com/*", "*://youtube.com/*"],
+      "css": ["base.css", "sites/youtube.css"],
+      "js": ["theme.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["colors.css"],
+      "matches": [
+        "*://news.ycombinator.com/*",
+        "*://www.reddit.com/*",
+        "*://reddit.com/*",
+        "*://sh.reddit.com/*",
+        "*://news.google.com/*",
+        "*://www.youtube.com/*",
+        "*://youtube.com/*"
+      ]
+    }
+  ]
+}

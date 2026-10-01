@@ -1,0 +1,23 @@
+/* Shared shades derived from the generated palette. Every rule is gated on
+   the attribute theme.js sets once colors.css has loaded. */
+
+html[data-omarchy-themed] {
+  --om-surface: color-mix(in srgb, var(--om-fg) 6%, var(--om-bg));
+  --om-surface-2: color-mix(in srgb, var(--om-fg) 10%, var(--om-bg));
+  --om-surface-3: color-mix(in srgb, var(--om-fg) 15%, var(--om-bg));
+  --om-border: color-mix(in srgb, var(--om-fg) 18%, var(--om-bg));
+  --om-fg-muted: color-mix(in srgb, var(--om-fg) 68%, var(--om-bg));
+  --om-fg-faint: color-mix(in srgb, var(--om-fg) 42%, var(--om-bg));
+  --om-tint: color-mix(in srgb, var(--om-fg) 10%, transparent);
+  --om-tint-strong: color-mix(in srgb, var(--om-fg) 20%, transparent);
+  --om-accent-soft: color-mix(in srgb, var(--om-accent) 25%, var(--om-bg));
+  --om-accent-hover: color-mix(in srgb, var(--om-accent) 75%, var(--om-fg));
+
+  color-scheme: var(--om-mode);
+  scrollbar-color: var(--om-surface-3) var(--om-bg);
+}
+
+html[data-omarchy-themed] ::selection {
+  background: color-mix(in srgb, var(--om-accent) 40%, var(--om-bg));
+  color: var(--om-fg-strong);
+}
