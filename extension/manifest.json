@@ -1,37 +1,198 @@
 {
   "manifest_version": 3,
   "name": "Omarchy Site Themes",
-  "version": "0.1.0",
-  "description": "Recolors Hacker News, Reddit, Google News and YouTube with the current Omarchy theme.",
+  "version": "0.2.0",
+  "description": "Recolors favorite sites with the current Omarchy theme.",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": [
+    "https://www.redditstatic.com/*",
+    "https://*.redditmedia.com/*",
+    "https://*.mmo-champion.com/*"
+  ],
   "content_scripts": [
     {
-      "matches": ["*://news.ycombinator.com/*"],
-      "css": ["base.css", "sites/hackernews.css"],
-      "js": ["theme.js"],
+      "matches": [
+        "*://news.ycombinator.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/hackernews.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
       "run_at": "document_start"
     },
     {
-      "matches": ["*://www.reddit.com/*", "*://reddit.com/*", "*://sh.reddit.com/*"],
-      "css": ["base.css", "sites/reddit.css"],
-      "js": ["theme.js"],
+      "matches": [
+        "*://www.reddit.com/*",
+        "*://reddit.com/*",
+        "*://sh.reddit.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/reddit.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
       "run_at": "document_start"
     },
     {
-      "matches": ["*://news.google.com/*"],
-      "css": ["base.css", "sites/google-news.css"],
-      "js": ["theme.js"],
+      "matches": [
+        "*://news.google.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/google-news.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
       "run_at": "document_start"
     },
     {
-      "matches": ["*://www.youtube.com/*", "*://youtube.com/*"],
-      "css": ["base.css", "sites/youtube.css"],
-      "js": ["theme.js"],
+      "matches": [
+        "*://www.youtube.com/*",
+        "*://youtube.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/youtube.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://github.com/*",
+        "*://gist.github.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/github.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://xkcd.com/*",
+        "*://www.xkcd.com/*",
+        "*://m.xkcd.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/xkcd.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://old.reddit.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/reddit.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.penny-arcade.com/*",
+        "*://penny-arcade.com/*"
+      ],
+      "css": [
+        "base.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://edisonreport.com/*",
+        "*://www.edisonreport.com/*"
+      ],
+      "css": [
+        "base.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://inside.lighting/*",
+        "*://www.inside.lighting/*"
+      ],
+      "css": [
+        "base.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://daringfireball.net/*"
+      ],
+      "css": [
+        "base.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.mmo-champion.com/*",
+        "*://mmo-champion.com/*"
+      ],
+      "css": [
+        "base.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js"
+      ],
       "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["colors.css"],
+      "resources": [
+        "colors.css"
+      ],
       "matches": [
         "*://news.ycombinator.com/*",
         "*://www.reddit.com/*",
@@ -39,7 +200,22 @@
         "*://sh.reddit.com/*",
         "*://news.google.com/*",
         "*://www.youtube.com/*",
-        "*://youtube.com/*"
+        "*://youtube.com/*",
+        "*://github.com/*",
+        "*://gist.github.com/*",
+        "*://xkcd.com/*",
+        "*://www.xkcd.com/*",
+        "*://m.xkcd.com/*",
+        "*://old.reddit.com/*",
+        "*://www.penny-arcade.com/*",
+        "*://penny-arcade.com/*",
+        "*://edisonreport.com/*",
+        "*://www.edisonreport.com/*",
+        "*://inside.lighting/*",
+        "*://www.inside.lighting/*",
+        "*://daringfireball.net/*",
+        "*://www.mmo-champion.com/*",
+        "*://mmo-champion.com/*"
       ]
     }
   ]

@@ -1,0 +1,11 @@
+/* xkcd: remap.js handles the page colors. Comics are black line art on white,
+   so in dark themes invert them; hue-rotate keeps the occasional color close
+   to the original. */
+
+html[data-omarchy-mode="dark"] #comic img {
+  filter: invert(0.88) hue-rotate(180deg);
+}
+
+html[data-omarchy-themed] .box {
+  border-radius: 10px !important;
+}

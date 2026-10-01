@@ -5,6 +5,7 @@
 
 const CACHE_KEY = "omarchy-site-theme";
 const ATTR = "data-omarchy-themed";
+const MODE_ATTR = "data-omarchy-mode";
 const POLL_MS = 2000;
 
 const root = document.documentElement;
@@ -16,6 +17,8 @@ function apply(css) {
   if (style.textContent !== css) style.textContent = css;
   if (!style.isConnected) (document.head || root).appendChild(style);
   if (!root.hasAttribute(ATTR)) root.setAttribute(ATTR, "");
+  const mode = css.match(/--om-mode:\s*(\w+)/)?.[1] || "dark";
+  if (root.getAttribute(MODE_ATTR) !== mode) root.setAttribute(MODE_ATTR, mode);
 }
 
 async function refresh() {

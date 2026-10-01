@@ -12,6 +12,7 @@ HOOK=$(mktemp -d)/omarchy-site-themes
 chmod +x "$SYNC"
 printf '#!/bin/bash\n\n# Installed by %s\n"%s"\n' "$ROOT/install.sh" "$SYNC" >"$HOOK"
 omarchy hook install theme-set "$HOOK"
+omarchy hook install font-set "$HOOK"
 rm -r "$(dirname "$HOOK")"
 
 "$SYNC"

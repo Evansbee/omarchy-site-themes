@@ -1,72 +1,184 @@
-/* Hacker News: plain table markup with hard-coded colors, so restyle directly. */
+/* Hacker News: plain table markup with hard-coded colors, restyled directly.
+   Set in the Omarchy font, with story rows that lift on hover, pill-shaped
+   domains and scores, and comment threads color-coded by depth. */
 
-html[data-omarchy-themed] body,
-html[data-omarchy-themed] #hnmain,
-html[data-omarchy-themed] td,
-html[data-omarchy-themed] .title,
-html[data-omarchy-themed] .subtext,
-html[data-omarchy-themed] .subtext td,
-html[data-omarchy-themed] .comhead,
-html[data-omarchy-themed] .yclinks,
-html[data-omarchy-themed] .default {
-  color: var(--om-fg-muted) !important;
-}
-
-html[data-omarchy-themed],
-html[data-omarchy-themed] body,
-html[data-omarchy-themed] #hnmain {
+html[data-omarchy-themed] {
+  --hn-font: var(--om-font), ui-monospace, monospace;
+  --hn-radius: 8px;
   background: var(--om-bg) !important;
 }
 
-/* Orange header bar */
+html[data-omarchy-themed] body {
+  background: var(--om-bg) !important;
+  color: var(--om-fg-muted) !important;
+  margin: 0 !important;
+  padding: 16px 0 32px !important;
+}
+
+html[data-omarchy-themed] :is(body, td, input, textarea, button, select,
+  .title, .subtext, .subtext td, .comhead, .comment, .yclinks, .pagetop, .default, .admin) {
+  font-family: var(--hn-font) !important;
+}
+
+html[data-omarchy-themed] #hnmain {
+  background: transparent !important;
+  width: min(1100px, calc(100% - 32px)) !important;
+  margin: 0 auto !important;
+}
+
+html[data-omarchy-themed] :is(td, .title, .subtext, .subtext td, .comhead, .yclinks, .default) {
+  color: var(--om-fg-muted) !important;
+}
+
+/* Header */
 html[data-omarchy-themed] td[bgcolor="#ff6600"] {
-  background: var(--om-surface-2) !important;
-  border-bottom: 2px solid var(--om-accent);
-}
-html[data-omarchy-themed] .pagetop,
-html[data-omarchy-themed] .pagetop a:link,
-html[data-omarchy-themed] .pagetop a:visited {
-  color: var(--om-fg) !important;
-}
-html[data-omarchy-themed] .hnname a:link,
-html[data-omarchy-themed] .hnname a:visited,
-html[data-omarchy-themed] .topsel a:link,
-html[data-omarchy-themed] .topsel a:visited {
-  color: var(--om-accent) !important;
+  background: var(--om-surface) !important;
+  border: 1px solid var(--om-border);
+  border-radius: var(--hn-radius);
+  padding: 6px 8px !important;
 }
 html[data-omarchy-themed] td[bgcolor="#ff6600"] img[src="y18.svg"] {
-  border-color: var(--om-surface-2) !important;
+  border: none !important;
+  border-radius: 4px;
+  filter: grayscale(1) brightness(1.6) contrast(0.8);
+  outline: 2px solid var(--om-accent);
+  outline-offset: -2px;
+}
+html[data-omarchy-themed] .pagetop {
+  font-size: 11pt !important;
+  line-height: 1.4 !important;
+}
+html[data-omarchy-themed] .pagetop :is(a:link, a:visited) {
+  color: var(--om-fg-muted) !important;
+}
+html[data-omarchy-themed] .pagetop a:hover {
+  color: var(--om-fg-strong) !important;
+}
+html[data-omarchy-themed] .hnname {
+  margin-right: 12px !important;
+}
+html[data-omarchy-themed] :is(.hnname, .topsel) :is(a:link, a:visited) {
+  color: var(--om-accent) !important;
+  font-weight: 700;
+}
+html[data-omarchy-themed] #me {
+  color: var(--om-accent) !important;
 }
 
 /* Links */
 html[data-omarchy-themed] a:link {
   color: var(--om-fg) !important;
 }
-html[data-omarchy-themed] a:visited,
+html[data-omarchy-themed] a:visited {
+  color: var(--om-fg-faint) !important;
+}
+
+/* Story list */
+html[data-omarchy-themed] tr.athing.submission > td,
+html[data-omarchy-themed] tr.athing.submission + tr > td {
+  padding-top: 2px;
+}
+html[data-omarchy-themed] tr.athing.submission:hover > td,
+html[data-omarchy-themed] tr.athing.submission:hover + tr > td,
+html[data-omarchy-themed] tr.athing.submission:has(+ tr:hover) > td,
+html[data-omarchy-themed] tr.athing.submission + tr:hover > td {
+  background: var(--om-surface);
+}
+html[data-omarchy-themed] tr.athing.submission > td:first-child {
+  border-radius: var(--hn-radius) 0 0 0;
+}
+html[data-omarchy-themed] tr.athing.submission > td:last-child {
+  border-radius: 0 var(--hn-radius) 0 0;
+}
+html[data-omarchy-themed] tr.athing.submission + tr > td:last-child {
+  border-radius: 0 0 var(--hn-radius) 0;
+  padding-bottom: 4px;
+}
+html[data-omarchy-themed] tr.athing.submission + tr > td:first-child {
+  border-radius: 0 0 0 var(--hn-radius);
+}
+
+html[data-omarchy-themed] .rank {
+  color: var(--om-accent) !important;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+  padding-left: 6px;
+}
+
+html[data-omarchy-themed] .titleline {
+  font-size: 11pt;
+}
+html[data-omarchy-themed] .titleline > a:link {
+  color: var(--om-fg-strong) !important;
+  font-weight: 500;
+}
 html[data-omarchy-themed] .titleline > a:visited {
   color: var(--om-fg-faint) !important;
 }
-html[data-omarchy-themed] .subtext a:link,
-html[data-omarchy-themed] .subtext a:visited,
-html[data-omarchy-themed] .comhead a:link,
-html[data-omarchy-themed] .comhead a:visited,
-html[data-omarchy-themed] .sitestr,
-html[data-omarchy-themed] .rank,
-html[data-omarchy-themed] .hnmore a:link {
-  color: var(--om-fg-muted) !important;
-}
-html[data-omarchy-themed] .hnuser:hover,
-html[data-omarchy-themed] .subtext a:hover,
-html[data-omarchy-themed] .comhead a:hover {
+html[data-omarchy-themed] .titleline > a:hover {
   color: var(--om-accent) !important;
 }
 
-/* Comments, strongest to most downvoted */
-html[data-omarchy-themed] .commtext,
-html[data-omarchy-themed] .c00,
-html[data-omarchy-themed] .c00 a:link,
-html[data-omarchy-themed] .toptext,
-html[data-omarchy-themed] font[color="#000000"] {
+html[data-omarchy-themed] .sitebit {
+  margin-left: 6px;
+  font-size: 0 !important; /* hides the bare "(" and ")" around the pill */
+}
+html[data-omarchy-themed] .sitebit a {
+  display: inline-block;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--om-tint);
+  color: var(--om-fg-muted) !important;
+  font-size: 8pt;
+  line-height: 1.6;
+}
+html[data-omarchy-themed] .sitebit a:hover {
+  background: var(--om-tint-strong);
+  text-decoration: none !important;
+}
+html[data-omarchy-themed] .sitestr {
+  color: inherit !important;
+}
+
+html[data-omarchy-themed] .subtext {
+  font-size: 8pt !important;
+}
+html[data-omarchy-themed] .subtext :is(a:link, a:visited) {
+  color: var(--om-fg-muted) !important;
+}
+html[data-omarchy-themed] .score {
+  display: inline-block;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--om-accent) 22%, transparent);
+  color: var(--om-fg-strong) !important;
+  font-weight: 600;
+}
+html[data-omarchy-themed] .subline > a:last-child {
+  color: var(--om-accent) !important;
+}
+html[data-omarchy-themed] :is(.subtext, .comhead) a:hover {
+  color: var(--om-fg-strong) !important;
+}
+html[data-omarchy-themed] .hnuser {
+  color: var(--om-fg) !important;
+}
+
+/* Up/down arrows: a flat triangle in theme colors instead of the gray GIF */
+html[data-omarchy-themed] .votearrow {
+  background: var(--om-fg-faint) !important;
+  clip-path: polygon(50% 12%, 100% 88%, 0 88%);
+}
+html[data-omarchy-themed] a:hover > .votearrow {
+  background: var(--om-accent) !important;
+}
+
+/* Comments */
+html[data-omarchy-themed] .comment {
+  font-size: 10pt !important;
+  line-height: 1.55;
+}
+html[data-omarchy-themed] :is(.commtext, .c00, .c00 a:link, .toptext) {
   color: var(--om-fg) !important;
 }
 html[data-omarchy-themed] :is(.c5a, .c73, .c82, .c88),
@@ -77,35 +189,85 @@ html[data-omarchy-themed] :is(.c9c, .cae, .cbe, .cce, .cdd),
 html[data-omarchy-themed] :is(.c9c, .cae, .cbe, .cce, .cdd) a:is(:link, :visited) {
   color: var(--om-fg-faint) !important;
 }
-html[data-omarchy-themed] .commtext a:link,
-html[data-omarchy-themed] .toptext a:link {
+html[data-omarchy-themed] :is(.commtext, .toptext) a:link {
   color: var(--om-accent) !important;
+  text-decoration-color: color-mix(in srgb, var(--om-accent) 40%, transparent) !important;
 }
-html[data-omarchy-themed] pre,
-html[data-omarchy-themed] code {
-  background: var(--om-surface);
+html[data-omarchy-themed] .comhead .hnuser {
+  color: var(--om-fg-strong) !important;
+  font-weight: 600;
+}
+html[data-omarchy-themed] .comhead .age a {
+  color: var(--om-fg-faint) !important;
+}
+html[data-omarchy-themed] font[color="#3c963c"] {
+  color: var(--om-green) !important;
+}
+html[data-omarchy-themed] font[color="#AFAFAF"],
+html[data-omarchy-themed] .reply font {
+  color: var(--om-fg-faint) !important;
+}
+
+/* Thread rails: each depth gets the next palette color */
+html[data-omarchy-themed] tr.comtr td.default {
+  --rail: var(--om-accent);
+  border-left: 2px solid color-mix(in srgb, var(--rail) 70%, transparent);
+  padding: 4px 0 6px 10px !important;
+}
+html[data-omarchy-themed] tr.comtr:has(td.ind[indent="1"], td.ind[indent="8"]) td.default { --rail: var(--om-blue); }
+html[data-omarchy-themed] tr.comtr:has(td.ind[indent="2"], td.ind[indent="9"]) td.default { --rail: var(--om-green); }
+html[data-omarchy-themed] tr.comtr:has(td.ind[indent="3"], td.ind[indent="10"]) td.default { --rail: var(--om-yellow); }
+html[data-omarchy-themed] tr.comtr:has(td.ind[indent="4"], td.ind[indent="11"]) td.default { --rail: var(--om-orange); }
+html[data-omarchy-themed] tr.comtr:has(td.ind[indent="5"], td.ind[indent="12"]) td.default { --rail: var(--om-magenta); }
+html[data-omarchy-themed] tr.comtr:has(td.ind[indent="6"], td.ind[indent="13"]) td.default { --rail: var(--om-cyan); }
+html[data-omarchy-themed] tr.comtr:has(td.ind[indent="7"], td.ind[indent="14"]) td.default { --rail: var(--om-red); }
+html[data-omarchy-themed] tr.comtr:hover td.default {
+  background: linear-gradient(to right, color-mix(in srgb, var(--rail) 8%, transparent), transparent 60%);
+}
+
+html[data-omarchy-themed] :is(pre, code) {
+  background: var(--om-surface) !important;
   color: var(--om-fg) !important;
+  border-radius: 6px;
+}
+html[data-omarchy-themed] pre {
+  padding: 8px 10px !important;
+  border: 1px solid var(--om-border);
 }
 
 /* Forms */
-html[data-omarchy-themed] input:not([type="submit"]),
-html[data-omarchy-themed] textarea,
-html[data-omarchy-themed] select {
+html[data-omarchy-themed] :is(input:not([type="submit"], [type="checkbox"], [type="radio"]), textarea, select) {
   background: var(--om-surface) !important;
   color: var(--om-fg) !important;
   border: 1px solid var(--om-border) !important;
+  border-radius: 6px;
+  padding: 4px 6px;
 }
-html[data-omarchy-themed] input[type="submit"],
-html[data-omarchy-themed] button {
-  background: var(--om-surface-2) !important;
-  color: var(--om-fg) !important;
-  border: 1px solid var(--om-border) !important;
+html[data-omarchy-themed] :is(input, textarea):focus {
+  outline: 2px solid var(--om-accent) !important;
+  outline-offset: 1px;
+}
+html[data-omarchy-themed] :is(input[type="submit"], button) {
+  background: var(--om-accent) !important;
+  color: var(--om-bg) !important;
+  border: none !important;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-weight: 600;
+  cursor: pointer;
 }
 html[data-omarchy-themed] input[readonly] {
   background: transparent !important;
   border: none !important;
 }
 
-html[data-omarchy-themed] .votearrow {
-  opacity: 0.7;
+/* Footer: the orange rule above the links */
+html[data-omarchy-themed] td[bgcolor="#ff6600"]:empty {
+  padding: 0 !important;
+  border: none;
+  border-radius: 0;
+  background: var(--om-border) !important;
+}
+html[data-omarchy-themed] .yclinks :is(a:link, a:visited) {
+  color: var(--om-fg-muted) !important;
 }
