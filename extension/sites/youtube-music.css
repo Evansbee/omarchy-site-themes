@@ -1,0 +1,112 @@
+/* YouTube Music: the UI reads a named palette (--ytmusic-color-*) and, with
+   the newer color scheme ([music-web-color-migration]), semantic tokens.
+   Both are remapped here. */
+
+html[data-omarchy-themed],
+html[data-omarchy-themed][music-web-color-migration] {
+  /* Named palette */
+  --ytmusic-color-white1: var(--om-fg) !important;
+  --ytmusic-color-grey2: var(--om-fg-muted) !important;
+  --ytmusic-color-grey3: color-mix(in srgb, var(--om-fg) 55%, var(--om-bg)) !important;
+  --ytmusic-color-grey4: var(--om-fg-faint) !important;
+  --ytmusic-color-grey5: color-mix(in srgb, var(--om-fg) 35%, var(--om-bg)) !important;
+  --ytmusic-color-grey-4: var(--om-fg-muted) !important;
+  --ytmusic-white-5: var(--om-surface-3) !important;
+  --ytmusic-color-black1: var(--om-surface-2) !important;
+  --ytmusic-color-black2: var(--om-surface) !important;
+  --ytmusic-color-black4: var(--om-bg) !important;
+  --ytmusic-color-blackpure: var(--om-bg) !important;
+  --ytmusic-opalescence-dark-grey: var(--om-surface-3) !important;
+  --ytmusic-color-navyblue: var(--om-surface-3) !important;
+  --ytmusic-color-lightred: var(--om-red) !important;
+  --ytmusic-color-youtubered: var(--om-red) !important;
+  --ytmusic-color-mediumred: var(--om-red) !important;
+  --ytmusic-color-mediumred-alpha90: color-mix(in srgb, var(--om-red) 90%, transparent) !important;
+  --ytmusic-color-lightblue: var(--om-accent) !important;
+  --ytmusic-color-blue-1: var(--om-accent) !important;
+  --ytmusic-color-yellow: var(--om-yellow) !important;
+  --ytmusic-color-lightgreen: var(--om-green) !important;
+  --ytmusic-color-green-1: var(--om-green) !important;
+  --ytmusic-color-lightteal: var(--om-cyan) !important;
+  --ytmusic-color-white1-alpha10: color-mix(in srgb, var(--om-fg) 10%, transparent) !important;
+  --ytmusic-color-white1-alpha15: color-mix(in srgb, var(--om-fg) 15%, transparent) !important;
+  --ytmusic-color-white1-alpha20: color-mix(in srgb, var(--om-fg) 20%, transparent) !important;
+  --ytmusic-color-white1-alpha25: color-mix(in srgb, var(--om-fg) 25%, transparent) !important;
+  --ytmusic-color-white1-alpha30: color-mix(in srgb, var(--om-fg) 30%, transparent) !important;
+  --ytmusic-color-white1-alpha50: color-mix(in srgb, var(--om-fg) 50%, transparent) !important;
+  --ytmusic-color-white1-alpha70: color-mix(in srgb, var(--om-fg) 70%, transparent) !important;
+  --ytmusic-color-white1-alpha95: color-mix(in srgb, var(--om-fg) 95%, transparent) !important;
+  --ytmusic-color-white-opacity-0-05: color-mix(in srgb, var(--om-fg) 5%, transparent) !important;
+  --ytmusic-color-white-opacity-0-5: color-mix(in srgb, var(--om-fg) 50%, transparent) !important;
+  --ytmusic-color-blackpure-alpha10: color-mix(in srgb, var(--om-bg) 10%, transparent) !important;
+  --ytmusic-color-blackpure-alpha60: color-mix(in srgb, var(--om-bg) 60%, transparent) !important;
+  --ytmusic-color-blackpure-alpha65: color-mix(in srgb, var(--om-bg) 65%, transparent) !important;
+  --ytmusic-color-black-opacity-0-4: color-mix(in srgb, var(--om-bg) 40%, transparent) !important;
+
+  /* Semantic tokens */
+  --ytmusic-background: var(--om-bg) !important;
+  --ytmusic-general-background-c: var(--om-bg) !important;
+  --ytmusic-detail-header: var(--om-bg) !important;
+  --ytmusic-alert-with-actions-background: var(--om-bg) !important;
+  --ytmusic-horizontal-action-card-background: var(--om-surface) !important;
+  --ytmusic-brand-background-solid: var(--om-surface-2) !important;
+  --ytmusic-nav-bar: var(--om-bg) !important;
+  --ytmusic-player-bar-background: var(--om-surface) !important;
+  --ytmusic-dropdown-background: var(--om-surface-2) !important;
+  --ytmusic-dialog-background-color: var(--om-surface-2) !important;
+  --ytmusic-item-section-info-panel-overview-background: var(--om-surface-2) !important;
+  --ytmusic-inverted-background: var(--om-fg) !important;
+  --ytmusic-toggle-button-chip-active-background: var(--om-fg) !important;
+  --ytmusic-play-pause-button-background: var(--om-fg) !important;
+  --ytmusic-text-primary: var(--om-fg) !important;
+  --ytmusic-alert-with-actions-header-text: var(--om-fg) !important;
+  --ytmusic-player-bar-ink-color: var(--om-fg) !important;
+  --ytmusic-text-primary-inverse: var(--om-bg) !important;
+  --ytmusic-text-secondary: var(--om-fg-muted) !important;
+  --ytmusic-overlay-text-secondary: var(--om-fg-muted) !important;
+  --ytmusic-icon-inactive: var(--om-fg-muted) !important;
+  --ytmusic-icon-disabled: var(--om-fg-faint) !important;
+  --ytmusic-player-bar-container-color: var(--om-fg-faint) !important;
+  --ytmusic-player-bar-repeat-disabled: var(--om-fg-faint) !important;
+  --ytmusic-player-controls-button-disabled: var(--om-fg-faint) !important;
+  --ytmusic-carousel-shelf-button-disabled: var(--om-fg-faint) !important;
+  --ytmusic-divider: var(--om-border) !important;
+  --ytmusic-guide-divider: var(--om-border) !important;
+  --ytmusic-progress-container: var(--om-border) !important;
+  --ytmusic-playback-progress-color: var(--om-accent) !important;
+  --ytmusic-static-brand-red: var(--om-accent) !important;
+  --ytmusic-focus-active: var(--om-accent) !important;
+  --ytmusic-search-suggestion-focus-active: var(--om-accent) !important;
+}
+
+html[data-omarchy-themed] body,
+html[data-omarchy-themed] ytmusic-app,
+html[data-omarchy-themed] ytmusic-app-layout {
+  background: var(--om-bg) !important;
+}
+
+/* Links fall back to --yt-endpoint-color (#f1f1f1). */
+html[data-omarchy-themed] {
+  --yt-endpoint-color: var(--om-fg);
+}
+
+/* Titles with a fixed white color. */
+html[data-omarchy-themed] :is(
+  ytmusic-guide-entry-renderer:not([is-primary]) .title.ytmusic-guide-entry-renderer,
+  .title.ytmusic-carousel-shelf-basic-header-renderer,
+  .title.ytmusic-two-row-item-renderer,
+  .title.ytmusic-responsive-list-item-renderer,
+  .subtitle.ytmusic-queue-header-renderer,
+  .content-info-wrapper.ytmusic-player-bar .title.ytmusic-player-bar
+) {
+  color: var(--om-fg) !important;
+}
+
+/* Fixed white fills: press feedback and the play button in the side bar. */
+html[data-omarchy-themed] :is(
+  .fill.yt-interaction,
+  .ytSpecTouchFeedbackShapeTouchResponse .ytSpecTouchFeedbackShapeFill,
+  ytmusic-guide-entry-renderer:not([is-primary]) #play-button.ytmusic-guide-entry-renderer
+) {
+  background-color: var(--om-fg) !important;
+}

@@ -9,7 +9,8 @@
   "host_permissions": [
     "https://www.redditstatic.com/*",
     "https://*.redditmedia.com/*",
-    "https://*.mmo-champion.com/*"
+    "https://*.mmo-champion.com/*",
+    "https://web-assets.waze.com/*"
   ],
   "content_scripts": [
     {
@@ -231,6 +232,106 @@
         "theme.js"
       ],
       "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://open.spotify.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/spotify.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "sites/spotify-rules.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://music.youtube.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/youtube-music.css",
+        "sites/youtube-music-rules.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://web.whatsapp.com/*"
+      ],
+      "css": [
+        "base.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "sites/whatsapp.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://grok.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/grok.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.google.com/maps*",
+        "*://maps.google.com/*"
+      ],
+      "css": [
+        "base.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js",
+        "sites/map-filter.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://www.waze.com/*"
+      ],
+      "css": [
+        "base.css"
+      ],
+      "js": [
+        "theme.js",
+        "palette.js",
+        "remap.js",
+        "sites/map-filter.js"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "*://gemini.google.com/*"
+      ],
+      "css": [
+        "base.css",
+        "sites/gemini.css"
+      ],
+      "js": [
+        "theme.js"
+      ],
+      "run_at": "document_start"
     }
   ],
   "web_accessible_resources": [
@@ -267,7 +368,15 @@
         "*://www.facebook.com/*",
         "*://facebook.com/*",
         "*://web.facebook.com/*",
-        "*://mail.google.com/*"
+        "*://mail.google.com/*",
+        "*://open.spotify.com/*",
+        "*://music.youtube.com/*",
+        "*://web.whatsapp.com/*",
+        "*://grok.com/*",
+        "*://www.google.com/*",
+        "*://maps.google.com/*",
+        "*://www.waze.com/*",
+        "*://gemini.google.com/*"
       ]
     }
   ]

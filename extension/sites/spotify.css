@@ -1,0 +1,139 @@
+/* Spotify web player: the UI reads Encore tokens (--background-*, --text-*,
+   --essential-*, --decorative-*). Each "set" class declares all of them again
+   for one surface: the base panels, the app frame around them, the green
+   accent buttons, inverted (light) chips, and the status colors. This maps
+   every set of the dark theme onto the palette. Spotify puts
+   .encore-dark-theme on <html> and again on some inner sections. */
+
+/* Base panels (library, main view, now playing). */
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme),
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-base-set {
+  --background-base: var(--om-surface) !important;
+  --background-highlight: var(--om-surface-2) !important;
+  --background-press: var(--om-bg) !important;
+  --background-elevated-base: var(--om-surface-2) !important;
+  --background-elevated-highlight: var(--om-surface-3) !important;
+  --background-elevated-press: var(--om-surface) !important;
+  --background-tinted-base: var(--om-tint) !important;
+  --background-tinted-highlight: var(--om-tint-strong) !important;
+  --background-tinted-press: color-mix(in srgb, var(--om-fg) 28%, transparent) !important;
+  --text-base: var(--om-fg) !important;
+  --text-subdued: var(--om-fg-muted) !important;
+  --text-bright-accent: var(--om-accent) !important;
+  --text-negative: var(--om-red) !important;
+  --text-warning: var(--om-yellow) !important;
+  --text-positive: var(--om-green) !important;
+  --text-announcement: var(--om-blue) !important;
+  --essential-base: var(--om-fg) !important;
+  --essential-subdued: var(--om-fg-faint) !important;
+  --essential-bright-accent: var(--om-accent) !important;
+  --essential-negative: var(--om-red) !important;
+  --essential-warning: var(--om-yellow) !important;
+  --essential-positive: var(--om-green) !important;
+  --essential-announcement: var(--om-blue) !important;
+  --decorative-base: var(--om-fg) !important;
+  --decorative-subdued: var(--om-border) !important;
+}
+
+/* App frame (the black area around the panels) and the dark sets. */
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) :is(.encore-app-frame-set, .encore-muted-accent-set, .encore-inverted-dark-set) {
+  --background-base: var(--om-bg) !important;
+  --background-highlight: var(--om-surface) !important;
+  --background-press: var(--om-surface-2) !important;
+  --background-elevated-base: var(--om-surface) !important;
+  --background-elevated-highlight: var(--om-surface-2) !important;
+  --background-elevated-press: var(--om-bg) !important;
+  --background-tinted-base: var(--om-tint) !important;
+  --background-tinted-highlight: var(--om-tint-strong) !important;
+  --background-tinted-press: color-mix(in srgb, var(--om-fg) 28%, transparent) !important;
+  --text-base: var(--om-fg) !important;
+  --text-subdued: var(--om-fg-muted) !important;
+  --text-bright-accent: var(--om-accent) !important;
+  --essential-base: var(--om-fg) !important;
+  --essential-subdued: var(--om-fg-faint) !important;
+  --essential-bright-accent: var(--om-accent) !important;
+  --decorative-base: var(--om-fg) !important;
+  --decorative-subdued: var(--om-border) !important;
+}
+
+/* Filled sets: a solid fill with text in the page background color. The
+   accent and positive sets are Spotify green, so they take the theme accent. */
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-bright-accent-set,
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-positive-set { --om-set: var(--om-accent); }
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) :is(.encore-inverted-set, .encore-inverted-light-set) { --om-set: var(--om-fg); }
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-negative-set { --om-set: var(--om-red); }
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-warning-set { --om-set: var(--om-yellow); }
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-announcement-set { --om-set: var(--om-blue); }
+
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) :is(.encore-bright-accent-set, .encore-positive-set, .encore-inverted-set,
+  .encore-inverted-light-set, .encore-negative-set, .encore-warning-set, .encore-announcement-set) {
+  --background-base: var(--om-set) !important;
+  --background-highlight: color-mix(in srgb, var(--om-set) 85%, var(--om-fg-strong)) !important;
+  --background-press: color-mix(in srgb, var(--om-set) 80%, var(--om-bg)) !important;
+  --background-elevated-base: color-mix(in srgb, var(--om-set) 85%, var(--om-fg-strong)) !important;
+  --background-elevated-highlight: color-mix(in srgb, var(--om-set) 85%, var(--om-fg-strong)) !important;
+  --background-elevated-press: color-mix(in srgb, var(--om-set) 80%, var(--om-bg)) !important;
+  --background-tinted-base: var(--om-set) !important;
+  --background-tinted-highlight: var(--om-set) !important;
+  --background-tinted-press: var(--om-set) !important;
+  --text-base: var(--om-bg) !important;
+  --text-subdued: color-mix(in srgb, var(--om-bg) 75%, var(--om-set)) !important;
+  --text-bright-accent: var(--om-bg) !important;
+  --text-negative: var(--om-bg) !important;
+  --text-warning: var(--om-bg) !important;
+  --text-positive: var(--om-bg) !important;
+  --text-announcement: var(--om-bg) !important;
+  --essential-base: var(--om-bg) !important;
+  --essential-subdued: color-mix(in srgb, var(--om-bg) 60%, var(--om-set)) !important;
+  --essential-bright-accent: var(--om-bg) !important;
+  --essential-negative: var(--om-bg) !important;
+  --essential-warning: var(--om-bg) !important;
+  --essential-positive: var(--om-bg) !important;
+  --essential-announcement: var(--om-bg) !important;
+  --decorative-base: var(--om-bg) !important;
+  --decorative-subdued: color-mix(in srgb, var(--om-set) 80%, var(--om-bg)) !important;
+}
+
+/* Subdued status sets: a tint of the status color with text in that color. */
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-negative-subdued-set { --om-set: var(--om-red); }
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-warning-subdued-set { --om-set: var(--om-yellow); }
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-positive-subdued-set { --om-set: var(--om-green); }
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) .encore-announcement-subdued-set { --om-set: var(--om-blue); }
+
+:is(html[data-omarchy-themed].encore-dark-theme, html[data-omarchy-themed] .encore-dark-theme) :is(.encore-negative-subdued-set, .encore-warning-subdued-set,
+  .encore-positive-subdued-set, .encore-announcement-subdued-set) {
+  --background-base: color-mix(in srgb, var(--om-set) 22%, var(--om-bg)) !important;
+  --background-highlight: color-mix(in srgb, var(--om-set) 28%, var(--om-bg)) !important;
+  --background-press: color-mix(in srgb, var(--om-set) 36%, var(--om-bg)) !important;
+  --background-elevated-base: color-mix(in srgb, var(--om-set) 28%, var(--om-bg)) !important;
+  --background-elevated-highlight: color-mix(in srgb, var(--om-set) 28%, var(--om-bg)) !important;
+  --background-elevated-press: color-mix(in srgb, var(--om-set) 36%, var(--om-bg)) !important;
+  --background-tinted-base: color-mix(in srgb, var(--om-set) 22%, var(--om-bg)) !important;
+  --background-tinted-highlight: color-mix(in srgb, var(--om-set) 22%, var(--om-bg)) !important;
+  --background-tinted-press: color-mix(in srgb, var(--om-set) 22%, var(--om-bg)) !important;
+  --text-base: var(--om-set) !important;
+  --text-subdued: var(--om-set) !important;
+  --text-bright-accent: var(--om-set) !important;
+  --text-negative: var(--om-set) !important;
+  --text-warning: var(--om-set) !important;
+  --text-positive: var(--om-set) !important;
+  --text-announcement: var(--om-set) !important;
+  --essential-base: var(--om-set) !important;
+  --essential-subdued: var(--om-set) !important;
+  --essential-bright-accent: var(--om-set) !important;
+  --essential-negative: var(--om-set) !important;
+  --essential-warning: var(--om-set) !important;
+  --essential-positive: var(--om-set) !important;
+  --essential-announcement: var(--om-set) !important;
+  --decorative-base: var(--om-set) !important;
+  --decorative-subdued: color-mix(in srgb, var(--om-set) 36%, var(--om-bg)) !important;
+}
+
+html[data-omarchy-themed] body {
+  background-color: var(--om-bg) !important;
+}
+
+/* Overlay scrollbars (OverlayScrollbars, fixed white at 30 %). */
+html[data-omarchy-themed] .os-scrollbar-handle {
+  background: var(--om-surface-3) !important;
+}

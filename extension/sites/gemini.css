@@ -1,0 +1,240 @@
+/* Gemini (gemini.google.com): Angular Material with two token families. --gem-sys-color--* are the
+   Material 3 style roles, --bard-color-* are app colors (code, chips, form fields). Google declares
+   both on :where(.theme-host) and :where(.theme-host.dark-theme), plus :root .dark-theme, and
+   switches with the system setting (light or dark). One selector list covers both modes: the
+   Omarchy palette replaces the light and the dark values. Component tokens (--mat-*, --mdc-*)
+   mostly point to these roles, so they follow. The brand logo, the gem colors (--gem-sys-color--gems-*)
+   and the image lightbox keep their own colors. */
+
+html[data-omarchy-themed],
+html[data-omarchy-themed] :is(body, .theme-host, .dark-theme, .light-theme) {
+  color-scheme: var(--om-mode) !important;
+
+  /* Page and surfaces */
+  --gem-sys-color--surface: var(--om-bg) !important;
+  --gem-sys-color--surface-dim: var(--om-bg) !important;
+  --gem-sys-color--surface-container-lowest: var(--om-bg) !important;
+  --gem-sys-color--surface-container-low: var(--om-surface) !important;
+  --gem-sys-color--surface-container: var(--om-surface) !important;
+  --gem-sys-color--surface-container-high: var(--om-surface-2) !important;
+  --gem-sys-color--surface-container-highest: var(--om-surface-3) !important;
+  --gem-sys-color--surface-bright: var(--om-surface-2) !important;
+  --gem-sys-color--surface-variant: var(--om-surface-3) !important;
+  --gem-sys-color--scrim: var(--om-bg) !important;
+  --gem-sys-color--image-stop: var(--om-surface-3) !important;
+  --gem-sys-color--universal-stop: var(--om-fg-faint) !important;
+  --gem-sys-color--inverse-surface: var(--om-fg) !important;
+  --gem-sys-color--inverse-on-surface: var(--om-bg) !important;
+  --mat-app-background-color: var(--om-bg) !important;
+  --mat-app-text-color: var(--om-fg) !important;
+  --mat-sys-background: var(--om-bg) !important;
+  --mat-sys-on-background: var(--om-fg) !important;
+  --mat-sys-on-surface: var(--om-fg) !important;
+  --mat-sys-secondary: var(--om-accent) !important;
+
+  /* Text and outlines */
+  --gem-sys-color--on-surface: var(--om-fg) !important;
+  --gem-sys-color--on-surface-variant: var(--om-fg-muted) !important;
+  --gem-sys-color--on-surface-low: var(--om-fg-faint) !important;
+  --gem-sys-color--outline: var(--om-fg-faint) !important;
+  --gem-sys-color--outline-variant: var(--om-border) !important;
+  --gem-sys-color--outline-low: var(--om-border) !important;
+  --gem-sys-color--outline-solid-1: var(--om-accent) !important;
+  --gem-sys-color--outline-solid-2: var(--om-accent) !important;
+  --gem-sys-color--outline-solid-3: var(--om-fg-strong) !important;
+  --gem-sys-color--outline-gradient-stop-1: var(--om-accent) !important;
+  --gem-sys-color--outline-gradient-stop-2: var(--om-fg-strong) !important;
+  --gem-sys-color--outline-gradient-stop-3: var(--om-accent) !important;
+
+  /* Primary, secondary, tertiary */
+  --gem-sys-color--primary: var(--om-accent) !important;
+  --gem-sys-color--on-primary: var(--om-bg) !important;
+  --gem-sys-color--primary-container: var(--om-accent-soft) !important;
+  --gem-sys-color--on-primary-container: var(--om-fg-strong) !important;
+  --gem-sys-color--primary-fixed: var(--om-accent-soft) !important;
+  --gem-sys-color--primary-fixed-dim: var(--om-accent) !important;
+  --gem-sys-color--on-primary-fixed: var(--om-fg-strong) !important;
+  --gem-sys-color--on-primary-fixed-variant: var(--om-fg-muted) !important;
+  --gem-sys-color--inverse-primary: var(--om-accent) !important;
+  --gem-sys-color--primary-emphasis-1: var(--om-accent) !important;
+  --gem-sys-color--primary-emphasis-2: var(--om-accent-hover) !important;
+  --gem-sys-color--on-primary-emphasis-1: var(--om-bg) !important;
+  --gem-sys-color--primary-container-emphasis-1: var(--om-accent-soft) !important;
+  --gem-sys-color--primary-container-emphasis-2: var(--om-accent) !important;
+  --gem-sys-color--on-primary-container-emphasis-1: var(--om-fg-strong) !important;
+  --gem-sys-color--secondary: var(--om-accent) !important;
+  --gem-sys-color--on-secondary: var(--om-bg) !important;
+  --gem-sys-color--secondary-container: var(--om-surface-3) !important;
+  --gem-sys-color--on-secondary-container: var(--om-fg) !important;
+  --gem-sys-color--secondary-fixed: var(--om-surface-3) !important;
+  --gem-sys-color--secondary-fixed-dim: var(--om-surface-3) !important;
+  --gem-sys-color--on-secondary-fixed: var(--om-fg) !important;
+  --gem-sys-color--on-secondary-fixed-variant: var(--om-fg-muted) !important;
+  --gem-sys-color--secondary-emphasis-1: var(--om-fg-strong) !important;
+  --gem-sys-color--secondary-emphasis-2: var(--om-fg-strong) !important;
+  --gem-sys-color--secondary-container-emphasis-1: var(--om-surface-3) !important;
+  --gem-sys-color--secondary-container-emphasis-2: var(--om-border) !important;
+  --gem-sys-color--tertiary: var(--om-green) !important;
+  --gem-sys-color--on-tertiary: var(--om-bg) !important;
+  --gem-sys-color--tertiary-container: color-mix(in srgb, var(--om-green) 25%, var(--om-bg)) !important;
+  --gem-sys-color--on-tertiary-container: var(--om-fg) !important;
+  --gem-sys-color--tertiary-fixed: color-mix(in srgb, var(--om-green) 25%, var(--om-bg)) !important;
+  --gem-sys-color--tertiary-fixed-dim: var(--om-green) !important;
+  --gem-sys-color--on-tertiary-fixed: var(--om-fg) !important;
+  --gem-sys-color--on-tertiary-fixed-variant: var(--om-fg-muted) !important;
+  --gem-sys-color--tertiary-emphasis-1: var(--om-magenta) !important;
+  --gem-sys-color--tertiary-emphasis-2: var(--om-accent-hover) !important;
+  --gem-sys-color--tertiary-container-emphasis-1: var(--om-accent-soft) !important;
+  --gem-sys-color--tertiary-container-emphasis-2: var(--om-accent) !important;
+
+  /* Status colors: -primary and -medium use the color, -low is a dark tint, -high a light tint */
+  --gem-sys-color--error: var(--om-red) !important;
+  --gem-sys-color--on-error: var(--om-bg) !important;
+  --gem-sys-color--error-container: color-mix(in srgb, var(--om-red) 25%, var(--om-bg)) !important;
+  --gem-sys-color--on-error-container: var(--om-fg) !important;
+  --gem-sys-color--red-primary: var(--om-red) !important;
+  --gem-sys-color--red-medium: var(--om-red) !important;
+  --gem-sys-color--red-low: color-mix(in srgb, var(--om-red) 35%, var(--om-bg)) !important;
+  --gem-sys-color--red-high: color-mix(in srgb, var(--om-red) 20%, var(--om-fg-strong)) !important;
+  --gem-sys-color--green-primary: var(--om-green) !important;
+  --gem-sys-color--green-medium: var(--om-green) !important;
+  --gem-sys-color--green-low: color-mix(in srgb, var(--om-green) 35%, var(--om-bg)) !important;
+  --gem-sys-color--green-high: color-mix(in srgb, var(--om-green) 20%, var(--om-fg-strong)) !important;
+  --gem-sys-color--orange-primary: var(--om-orange) !important;
+  --gem-sys-color--orange-medium: var(--om-orange) !important;
+  --gem-sys-color--orange-low: color-mix(in srgb, var(--om-orange) 35%, var(--om-bg)) !important;
+  --gem-sys-color--orange-high: color-mix(in srgb, var(--om-orange) 20%, var(--om-fg-strong)) !important;
+  --gem-sys-color--blue-primary: var(--om-blue) !important;
+  --gem-sys-color--blue-medium: var(--om-blue) !important;
+  --gem-sys-color--blue-low: color-mix(in srgb, var(--om-blue) 35%, var(--om-bg)) !important;
+  --gem-sys-color--blue-high: color-mix(in srgb, var(--om-blue) 20%, var(--om-fg-strong)) !important;
+  --gem-sys-color--purple-primary: var(--om-magenta) !important;
+  --gem-sys-color--purple-medium: var(--om-magenta) !important;
+  --gem-sys-color--purple-low: color-mix(in srgb, var(--om-magenta) 35%, var(--om-bg)) !important;
+  --gem-sys-color--purple-high: color-mix(in srgb, var(--om-magenta) 20%, var(--om-fg-strong)) !important;
+
+  /* Greeting text, microphone and glow gradients */
+  --bard-color-brand-text-gradient-stop-1: var(--om-accent) !important;
+  --bard-color-brand-text-gradient-stop-2: var(--om-magenta) !important;
+  --bard-color-brand-text-gradient-stop-3: var(--om-cyan) !important;
+  --bard-color-brand-text-gradient-v2-stop-1: var(--om-accent) !important;
+  --bard-color-brand-text-gradient-v2-stop-2: var(--om-magenta) !important;
+  --bard-color-brand-text-gradient-v2-stop-3: var(--om-cyan) !important;
+  --gem-sys-color--text-basic-stop-high: var(--om-accent) !important;
+  --gem-sys-color--text-basic-stop-low: var(--om-surface-3) !important;
+  --gem-sys-color--text-advanced-stop-high: var(--om-magenta) !important;
+  --gem-sys-color--text-advanced-stop-low: var(--om-surface-3) !important;
+  --gem-sys-color--mic-gradient-stop-1: var(--om-cyan) !important;
+  --gem-sys-color--mic-gradient-stop-2: var(--om-accent) !important;
+  --gem-sys-color--mic-gradient-stop-3: var(--om-magenta) !important;
+  --gem-sys-color--soft-glow-blue-1: var(--om-accent) !important;
+  --gem-sys-color--soft-glow-blue-2: var(--om-accent) !important;
+  --gem-sys-color--soft-glow-pink-1: var(--om-magenta) !important;
+  --gem-sys-color--soft-glow-pink-2: var(--om-magenta) !important;
+
+  /* App colors */
+  --bard-color-neutral-90: var(--om-surface-3) !important;
+  --bard-color-neutral-95: var(--om-surface-2) !important;
+  --bard-color-neutral-96: var(--om-bg) !important;
+  --bard-color-surface-tint: var(--om-accent) !important;
+  --bard-color-surface-3-opacity-11: color-mix(in srgb, var(--om-accent) 11%, transparent) !important;
+  --bard-color-surface-5-opacity-14: color-mix(in srgb, var(--om-accent) 14%, transparent) !important;
+  --bard-color-surface-dim-tmp: var(--om-bg) !important;
+  --bard-color-footer-background: var(--om-bg) !important;
+  --bard-color-draft-chip-background: var(--om-surface-3) !important;
+  --bard-color-response-container-flipped-background: var(--om-surface) !important;
+  --bard-color-new-conversation-button: var(--om-surface-2) !important;
+  --bard-color-on-new-conversation-button: var(--om-fg) !important;
+  --bard-color-input-area-buttons-hover-background: var(--om-fg) !important;
+  --bard-color-input-companion-button-hover-background: var(--om-surface-3) !important;
+  --bard-color-input-companion-button-active-background: var(--om-border) !important;
+  --bard-color-form-field-outline: var(--om-fg-muted) !important;
+  --bard-color-form-field-outline-active: var(--om-accent) !important;
+  --bard-color-form-field-outline-hover: var(--om-fg) !important;
+  --bard-color-form-field-placeholder: var(--om-fg-muted) !important;
+  --bard-color-zero-state-card-selected: var(--om-accent-soft) !important;
+  --bard-color-zero-state-prompt-chip-background: var(--om-surface-2) !important;
+  --bard-color-zero-state-prompt-chip-text: var(--om-fg) !important;
+  --bard-color-get-app-banner-background: var(--om-accent-soft) !important;
+  --bard-color-get-app-banner-text: var(--om-fg) !important;
+  --bard-color-share-link: var(--om-accent) !important;
+  --bard-color-share-selected-title-card-border: var(--om-accent) !important;
+  --bard-color-share-title-card-border: var(--om-border) !important;
+  --bard-color-strong-focus-indicator: var(--om-fg-strong) !important;
+  --bard-color-continue-chat-discovery-tooltip-button-text: var(--om-accent) !important;
+  --bard-color-sidenav-scrim: color-mix(in srgb, var(--om-bg) 60%, transparent) !important;
+  --bard-color-sidenav-mobile-controls: var(--om-fg) !important;
+  --bard-color-sidenav-tile-background-aurora: var(--om-surface) !important;
+  --bard-color-sidenav-tile-text-aurora: var(--om-fg-muted) !important;
+  --bard-color-remy-surface: var(--om-bg) !important;
+  --bard-color-image-placeholder-background: var(--om-surface-3) !important;
+  --bard-color-progress-bar-not-started: var(--om-surface-3) !important;
+  --bard-color-skeleton-loader-background-1: var(--om-surface) !important;
+  --bard-color-skeleton-loader-background-2: var(--om-surface-3) !important;
+  --bard-color-skeleton-loader-background-3: var(--om-accent) !important;
+  --bard-color-skeleton-loader-background-alt-1: var(--om-surface) !important;
+  --bard-color-skeleton-loader-background-alt-2: var(--om-surface-3) !important;
+  --bard-color-skeleton-loader-background-alt-3: var(--om-magenta) !important;
+  --bard-color-skeleton-loader-background-grayscale-1: var(--om-surface) !important;
+  --bard-color-skeleton-loader-background-grayscale-2: var(--om-surface-3) !important;
+  --bard-color-skeleton-loader-background-grayscale-3: var(--om-surface) !important;
+
+  /* Lumi: the newer panels (sidebar, input area, suggestions) use --lumi-sys-color--*, and the
+     chat glow behind the greeting uses --bard-color-lm-*. --lumi-sys-color--black and --white stay. */
+  --lumi-sys-color--surface: var(--om-bg) !important;
+  --lumi-sys-color--surface-background: var(--om-bg) !important;
+  --lumi-sys-color--surface-dim: var(--om-surface) !important;
+  --lumi-sys-color--surface-bright: var(--om-surface) !important;
+  --lumi-sys-color--surface-accent: var(--om-accent-soft) !important;
+  --lumi-sys-color-acc-color--accent: var(--om-accent) !important;
+  --lumi-sys-color-acc-color--accent-container: var(--om-accent-soft) !important;
+  --lumi-sys-color-acc-color--accent-fixed: var(--om-accent) !important;
+  --lumi-sys-color--on-surface: var(--om-fg) !important;
+  --lumi-sys-color--on-surface-low: var(--om-tint) !important;
+  --lumi-sys-color--on-surface-variant: var(--om-fg-muted) !important;
+  --lumi-sys-color--error: var(--om-red) !important;
+  --lumi-sys-color--error-container: color-mix(in srgb, var(--om-red) 25%, var(--om-bg)) !important;
+  --lumi-sys-color--on-error-container: var(--om-red) !important;
+  --lumi-sys-color--positive: var(--om-green) !important;
+  --lumi-sys-color--positive-container: color-mix(in srgb, var(--om-green) 25%, var(--om-bg)) !important;
+  --lumi-sys-color--on-positive-container: var(--om-green) !important;
+  --lumi-sys-color--code-background: var(--om-surface) !important;
+  --lumi-sys-color--code-primary-text: var(--om-fg) !important;
+  --lumi-sys-color--code-grey-text: var(--om-fg-faint) !important;
+  --lumi-sys-color--code-red-text: var(--om-red) !important;
+  --lumi-sys-color--code-yellow-text: var(--om-yellow) !important;
+  --lumi-sys-color--code-green-text: var(--om-green) !important;
+  --lumi-sys-color--code-blue-text: var(--om-blue) !important;
+  --lumi-sys-color--code-purple-text: var(--om-magenta) !important;
+  --lumi-sys-color--code-pink-text: var(--om-magenta) !important;
+  --bard-color-lm-glow-chat: color-mix(in srgb, var(--om-accent) 30%, var(--om-bg)) !important;
+  --bard-color-lm-glow-task-base: var(--om-accent-soft) !important;
+  --bard-color-lm-glow-task-mid: var(--om-accent) !important;
+  --bard-color-lm-glow-bloom: var(--om-bg) !important;
+  --bard-color-lm-accent-task: var(--om-accent) !important;
+  --bard-color-lm-surface-overlay-container: var(--om-tint) !important;
+
+  /* Code blocks */
+  --bard-color-code-comment: var(--om-fg-faint) !important;
+  --bard-color-code-variables: var(--om-red) !important;
+  --bard-color-code-literal: var(--om-orange) !important;
+  --bard-color-code-class: var(--om-yellow) !important;
+  --bard-color-code-string: var(--om-green) !important;
+  --bard-color-code-quotes-and-meta: var(--om-blue) !important;
+  --bard-color-code-keyword: var(--om-magenta) !important;
+  --bard-color-code-chip-foreground: var(--om-fg-strong) !important;
+  --bard-color-code-chip-background: var(--om-accent-soft) !important;
+  --bard-color-code-chip-background-selected: var(--om-accent) !important;
+}
+
+html[data-omarchy-themed],
+html[data-omarchy-themed] body {
+  background: var(--om-bg) !important;
+  color: var(--om-fg) !important;
+}
+
+/* The sidebar and its buttons (Sign in, New chat) both use surface-container, so the buttons vanish.
+   The sidebar gets the darker step. */
+html[data-omarchy-themed] bard-sidenav {
+  background-color: color-mix(in srgb, var(--om-fg) 3%, var(--om-bg)) !important;
+}

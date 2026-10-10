@@ -1,0 +1,179 @@
+/* Grok: a shadcn-style token set. Since the 2026-10 redesign, nearly all tokens hold full colors
+   (--surface-base: #131211, --fg-primary: hsl(0 0% 99%)), so they get the --om-* values. Only the gray
+   scales (--neutral-*, --gray-*, --warm-gray-*), --border, --muted, --white, --black and --warm-* still
+   hold bare HSL triplets (0 0% 14.9%), so they get the --om-hsl-* values. A triplet in a full-color token
+   is no color, and the page falls back to the browser's dark canvas (rgb(18, 18, 18)). Check the format of
+   a token in the page before you map it.
+   This assumes Grok's dark mode, which it takes from the system setting.
+   The gray scales do not flip in dark mode, so they map by lightness: dark steps are surfaces, light
+   steps text. */
+
+html[data-omarchy-themed],
+html[data-omarchy-themed] :is(body, .dark) {
+  /* Page and surfaces */
+  --background: var(--om-bg) !important;
+  --background-color: var(--om-bg) !important;
+  --surface-base: var(--om-bg) !important;
+  --surface-inset: var(--om-bg) !important;
+  /* :root.dark body sets a warm set on top: --warm-white is its panel fill,
+     --warm-black its ink for the alpha borders. */
+  --warm-white: var(--om-hsl-surface) !important;
+  --warm-black: var(--om-hsl-fg-strong) !important;
+  --surface-user-bubble: var(--om-surface-2) !important;
+  --surface-composer: var(--om-surface-2) !important;
+  --border-composer: var(--om-tint) !important;
+  --foreground: var(--om-fg) !important;
+  --surface-l1: var(--om-surface) !important;
+  --surface-l1-hover: var(--om-surface-2) !important;
+  --surface-l2: var(--om-surface-2) !important;
+  --surface-l2-active: var(--om-surface-3) !important;
+  --surface-l3: var(--om-surface-3) !important;
+  --surface-l4: var(--om-surface-3) !important;
+  --surface-l4-hover: var(--om-border) !important;
+  --surface-elevated: var(--om-surface-3) !important;
+  --surface-invert: var(--om-fg-strong) !important;
+  --surface-banner: var(--om-green) !important;
+  --surface-incognito: var(--om-surface) !important;
+  --surface-incognito-elevated: var(--om-surface-3) !important;
+  --card: var(--om-tint) !important;
+  --card-hover: var(--om-tint) !important;
+  --card-foreground: var(--om-hsl-fg) !important;
+  --popover: var(--om-surface-2) !important;
+  --popover-foreground: var(--om-hsl-fg) !important;
+  --muted: var(--om-hsl-surface-2) !important;
+  --muted-foreground: var(--om-fg-muted) !important;
+  --accent: var(--om-surface-2) !important;
+  --accent-foreground: var(--om-fg) !important;
+  --secondary-foreground: var(--om-hsl-fg) !important;
+  --chip: var(--om-tint) !important;
+  --overlay: color-mix(in srgb, var(--om-bg) 60%, transparent) !important;
+  --highlight: color-mix(in srgb, var(--om-accent) 30%, transparent) !important;
+  --sidebar-foreground: var(--om-fg) !important;
+  --sidebar-accent: var(--om-surface-3) !important;
+  --sidebar-accent-foreground: var(--om-fg-strong) !important;
+  --sidebar-border: var(--om-border) !important;
+  --sidebar-ring: var(--om-accent) !important;
+
+  /* Text */
+  --fg-primary: var(--om-fg-strong) !important;
+  --fg-secondary: var(--om-fg-muted) !important;
+  --fg-tertiary: var(--om-fg-faint) !important;
+  --fg-quaternary: var(--om-fg-faint) !important;
+  --fg-invert: var(--om-bg) !important;
+  --fg-link: var(--om-accent) !important;
+  --fg-accent: var(--om-accent) !important;
+  --fg-accent-hover: var(--om-accent) !important;
+  --fg-diff-add: var(--om-green) !important;
+  --fg-diff-del: var(--om-red) !important;
+  --accent-incognito: var(--om-magenta) !important;
+  --highlight-incognito: color-mix(in srgb, var(--om-magenta) 30%, transparent) !important;
+  --incognito-input-button-background-hover: var(--om-border) !important;
+  --fg-electric-blue: var(--om-accent) !important;
+  --fg-incognito: var(--om-magenta) !important;
+  --fg-positive: var(--om-hsl-cyan) !important;
+  --fg-success: var(--om-green) !important;
+  --fg-warning: var(--om-yellow) !important;
+  --fg-danger: var(--om-red) !important;
+  --fg-orange: var(--om-orange) !important;
+  --color-primary: var(--om-fg-strong) !important;
+  --color-fg-secondary: var(--om-fg-muted) !important;
+  --color-fg-warning: var(--om-yellow) !important;
+  --link: var(--om-accent) !important;
+  --link-hover: var(--om-accent-hover) !important;
+  --primary: var(--om-hsl-fg-strong) !important;
+  --primary-foreground: var(--om-bg) !important;
+  --destructive: var(--om-red) !important;
+  --destructive-foreground: var(--om-bg) !important;
+  --white: var(--om-hsl-fg-strong) !important;
+  --black: var(--om-hsl-bg) !important;
+  --solar: var(--om-orange) !important;
+
+  /* Borders */
+  --border: var(--om-hsl-border) !important;
+  --border-l1: var(--om-tint) !important;
+  --border-l2: var(--om-tint-strong) !important;
+  --border-l3: color-mix(in srgb, var(--om-fg) 30%, transparent) !important;
+  --border-invert-l1: color-mix(in srgb, var(--om-bg) 6%, transparent) !important;
+  --border-incognito-muted: var(--om-border) !important;
+  --color-border: var(--om-tint) !important;
+  --ring: var(--om-accent) !important;
+  --toggle-border: var(--om-tint) !important;
+  --toggle-selected: var(--om-tint-strong) !important;
+
+  /* Inputs and buttons */
+  --input-background: var(--om-surface-2) !important;
+  --input-hover: var(--om-surface-3) !important;
+  --input-border: var(--om-tint) !important;
+  --input-border-focus: var(--om-tint-strong) !important;
+  --input-button-background: var(--om-surface-3) !important;
+  --input-button-background-hover: var(--om-border) !important;
+  --incognito-input-button-background: var(--om-surface-3) !important;
+  --button-primary: var(--om-fg-strong) !important;
+  --button-primary-hover: var(--om-fg-strong) !important;
+  --button-filled: var(--om-fg-strong) !important;
+  --button-filled-hover: var(--om-fg) !important;
+  --button-filled-active: var(--om-fg-muted) !important;
+  --button-secondary: var(--om-tint-strong) !important;
+  --button-secondary-hover: color-mix(in srgb, var(--om-fg) 25%, transparent) !important;
+  --button-secondary-fill: var(--om-tint) !important;
+  --button-secondary-fill-hover: var(--om-tint) !important;
+  --button-secondary-fill-active: var(--om-tint-strong) !important;
+  --button-ghost-hover: var(--om-tint) !important;
+  --button-ghost-active: var(--om-tint-strong) !important;
+  --button-ghost-surface-hover: color-mix(in srgb, var(--om-fg) 5%, transparent) !important;
+  --button-incognito: var(--om-magenta) !important;
+  --button-danger-fill: color-mix(in srgb, var(--om-red) 8%, transparent) !important;
+  --button-danger-fill-hover: color-mix(in srgb, var(--om-red) 12%, transparent) !important;
+  --button-danger-fill-active: color-mix(in srgb, var(--om-red) 16%, transparent) !important;
+  --bg-electric-blue: color-mix(in srgb, var(--om-accent) 12%, transparent) !important;
+  --bg-warning: color-mix(in srgb, var(--om-yellow) 12%, transparent) !important;
+  --scrollbar-thumb: var(--om-tint-strong) !important;
+  --scrollbar-thumb-dimmed: var(--om-tint) !important;
+
+  /* Gray scales, by lightness */
+  --neutral-1000: var(--om-hsl-bg) !important;
+  --neutral-950: var(--om-hsl-bg) !important;
+  --neutral-900: var(--om-hsl-surface) !important;
+  --neutral-800: var(--om-hsl-surface-2) !important;
+  --neutral-700: var(--om-hsl-surface-3) !important;
+  --neutral-600: var(--om-hsl-border) !important;
+  --neutral-500: var(--om-hsl-fg-faint) !important;
+  --neutral-400: var(--om-hsl-fg-faint) !important;
+  --neutral-300: var(--om-hsl-fg-muted) !important;
+  --neutral-250: var(--om-hsl-fg-muted) !important;
+  --neutral-200: var(--om-hsl-fg) !important;
+  --neutral-150: var(--om-hsl-fg) !important;
+  --neutral-100: var(--om-hsl-fg-strong) !important;
+  --neutral-50: var(--om-hsl-fg-strong) !important;
+  --gray-1000: var(--om-hsl-bg) !important;
+  --gray-950: var(--om-hsl-bg) !important;
+  --gray-900: var(--om-hsl-surface) !important;
+  --gray-800: var(--om-hsl-surface-2) !important;
+  --gray-700: var(--om-hsl-surface-3) !important;
+  --gray-600: var(--om-hsl-border) !important;
+  --gray-500: var(--om-hsl-fg-faint) !important;
+  --gray-400: var(--om-hsl-fg-faint) !important;
+  --gray-300: var(--om-hsl-fg-muted) !important;
+  --gray-200: var(--om-hsl-fg) !important;
+  --gray-100: var(--om-hsl-fg-strong) !important;
+  --gray-50: var(--om-hsl-fg-strong) !important;
+  --warm-gray-1000: var(--om-hsl-bg) !important;
+  --warm-gray-950: var(--om-hsl-bg) !important;
+  --warm-gray-800: var(--om-hsl-surface-2) !important;
+  --warm-gray-700: var(--om-hsl-surface-3) !important;
+  --warm-gray-600: var(--om-hsl-border) !important;
+  --warm-gray-400: var(--om-hsl-fg-faint) !important;
+  --warm-gray-300: var(--om-hsl-fg-muted) !important;
+  --warm-gray-200: var(--om-hsl-fg) !important;
+  --warm-gray-100: var(--om-hsl-fg-strong) !important;
+  --warm-gray-50: var(--om-hsl-fg-strong) !important;
+}
+
+/* Toasts (sonner) set their own colors on the toaster element. */
+html[data-omarchy-themed] [data-sonner-toaster][data-sonner-theme] {
+  --normal-bg: var(--om-surface-2) !important;
+  --normal-bg-hover: var(--om-surface-3) !important;
+  --normal-border: var(--om-border) !important;
+  --normal-border-hover: var(--om-fg-faint) !important;
+  --normal-text: var(--om-fg) !important;
+}
