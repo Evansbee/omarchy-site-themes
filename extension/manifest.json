@@ -64,7 +64,9 @@
         "sites/youtube.css"
       ],
       "js": [
-        "theme.js"
+        "theme.js",
+        "palette.js",
+        "sites/youtube-tokens.js"
       ],
       "run_at": "document_start"
     },
@@ -93,7 +95,9 @@
         "sites/x.css"
       ],
       "js": [
-        "theme.js"
+        "theme.js",
+        "palette.js",
+        "sites/x-classic.js"
       ],
       "run_at": "document_start"
     },

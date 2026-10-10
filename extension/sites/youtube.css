@@ -49,3 +49,27 @@ html[data-omarchy-themed] #background.ytd-masthead,
 html[data-omarchy-themed] #frosted-glass {
   background: var(--om-bg) !important;
 }
+
+/* Search box: the ...Dark classes hard-code #121212, #303030 and #fff. */
+html[data-omarchy-themed] .ytSearchboxComponentHostDark {
+  color: var(--om-fg) !important;
+}
+html[data-omarchy-themed] .ytSearchboxComponentInputBoxDark {
+  background-color: var(--om-bg) !important;
+  border-color: var(--om-border) !important;
+}
+html[data-omarchy-themed] .ytSearchboxComponentSearchButtonDark {
+  background-color: var(--om-surface) !important;
+  border-color: var(--om-border) !important;
+}
+
+/* Ambient mode: while a video plays in the default view, YouTube draws a
+   blurred copy of the current frame on canvases in #cinematics, behind the
+   player and the top of the page. A dark video turns that area black over
+   the theme. Theater mode has no glow. Shorts draw the same glow behind
+   each Short in #shorts-cinematic-container. Hide both, so the theme stays. */
+html[data-omarchy-themed] #cinematics,
+html[data-omarchy-themed] #cinematics-container,
+html[data-omarchy-themed] #shorts-cinematic-container {
+  display: none !important;
+}
